@@ -1,0 +1,80 @@
+#!/bin/bash
+WALL_DIR="$HOME/data/Wallpapers/"
+MODE="random"
+CUSTOM_PATH=""
+
+apply_wallpaper() {
+  # Apply wallpaper
+  if ! pgrep -x hyprpaper >/dev/null; then
+    # Hyprpaper not running → start with chosen wallpaper
+    cat >~/.config/hypr/hyprpaper.conf <<EOF
+splash = false
+wallpaper {
+    monitor =
+    path = $NEW_WALL
+}
+EOF
+    hyprpaper &
+    wal -i $NEW_WALL -n
+  else
+    # Hyprpaper is running → change it live
+    cat >~/.config/hypr/hyprpaper.conf <<EOF
+splash = false
+wallpaper {
+    monitor =
+    path = $NEW_WALL
+}
+EOF
+    hyprctl hyprpaper wallpaper ",$NEW_WALL"
+    wal -i $NEW_WALL -n
+  fi
+
+}
+
+# Parse options
+while getopts ":mnp:" opt; do
+  case $opt in
+  m) MODE="menu" ;;
+  p)
+    MODE="path"
+    CUSTOM_PATH="$(realpath $OPTARG)"
+    ;;
+  n) MODE="nc" ;;
+  \?)
+    echo "Usage: $0 [-m] [-p /path/to/image] [-n]" >&2
+    exit 1
+    ;;
+  :)
+    echo "Option -$OPTARG requires an argument." >&2
+    exit 1
+    ;;
+  esac
+done
+
+# Choose wallpaper
+case $MODE in
+random)
+  NEW_WALL=$(find "$WALL_DIR" -type f | shuf -n 1)
+  if [[ -z "$NEW_WALL" ]]; then
+    NEW_WALL="$HOME/.config/hypr/default-wallpaper.png"
+  fi
+  apply_wallpaper
+  ;;
+path)
+  if [[ -f "$CUSTOM_PATH" ]]; then
+    NEW_WALL="$CUSTOM_PATH"
+  else
+    echo "Error: File not found -> $CUSTOM_PATH" >&2
+    exit 1
+  fi
+  apply_wallpaper
+  ;;
+menu)
+  NEW_WALL=$(nsxiv -tfpo $WALL_DIR)
+  apply_wallpaper
+  ;;
+nc)
+  echo "Not changing anything"
+  pgrep 'hyprpaper' || hyprpaper &
+  ;;
+esac

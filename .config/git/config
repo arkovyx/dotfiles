@@ -1,0 +1,8 @@
+[user]
+	email = <your e-mail>
+	name = <your username>
+[init]
+	defaultBranch = main
+
+[push]
+        ; autosetupremote = true
