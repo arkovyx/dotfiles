@@ -6,7 +6,7 @@
 ## Usage
 ```bash
 cd $HOME
-git clone https://git.krolyxon.com/dotfiles ~/.dotfiles
+git clone https://github.com/arkovyx/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 ./install.sh
 
