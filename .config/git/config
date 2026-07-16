@@ -1,0 +1,8 @@
+[user]
+	email = me.arkovyx@gmail.com
+	name = arkovyx
+[init]
+	defaultBranch = main
+
+[push]
+        ; autosetupremote = true
