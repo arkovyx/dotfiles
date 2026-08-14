@@ -44,7 +44,6 @@ export pkg_utils=(
     "mpd-mpris"
     "mpv"
     "ncdu"
-    "ncmpcpp"
     "ntfs-3g"
     "nwg-look"
     "pacman-contrib"
