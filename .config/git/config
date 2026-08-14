@@ -1,6 +1,6 @@
 [user]
-	email = me.arkovyx@gmail.com
-	name = arkovyx
+	email = <your mail>
+	name = <username>
 [init]
 	defaultBranch = master
 
