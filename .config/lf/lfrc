@@ -120,3 +120,4 @@ map gm cd ~/data/media
 map gb cd ~/.local/bin
 map gt cd ~/temp
 map gs cd ~/.local/share
+map gi cd ~/dev/info
