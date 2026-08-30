@@ -109,13 +109,13 @@ map T $nsxiv -t "$(pwd)" # opens thumbnail mode
 map <c-l> unselect
 
 # movement
+map gw cd ~/data/Wallpapers
 map gd cd ~/dox
 map gD cd ~/dl
 map gp cd ~/pix
 map gc cd ~/.config
 map gC cd ~/.cache
-map gr cd ~/dev
-map gM cd ~/media
+map gr cd ~/dev/repo
 map gm cd ~/data/media
 map gb cd ~/.local/bin
 map gt cd ~/temp
