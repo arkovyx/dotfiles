@@ -1,0 +1,115 @@
+#!/bin/sh
+
+# ─── PYAWAL COLORS ───
+if [ -f ~/.cache/wal/colors ]; then
+    . ~/.cache/wal/colors
+    C1="$color1"
+    C2="$color2"
+    C3="$color3"
+    C4="$color4"
+    C5="$color5"
+    C6="$color6"
+    C7="$color7"
+    C8="$color8"
+else
+    C1='\033[0;34m'
+    C2='\033[0;32m'
+    C3='\033[0;33m'
+    C4='\033[0;31m'
+    C5='\033[0;35m'
+    C6='\033[0;36m'
+    C7='\033[1;37m'
+    C8='\033[0;30m'
+fi
+
+RESET='\033[0m'
+GREEN='\033[0;32m'
+MAGENTA='\033[0;35m'
+WHITE='\033[1;37m'
+YELLOW='\033[0;33m'
+CYAN='\033[0;36m'
+RED='\033[0;31m'
+BLUE='\033[0;34m'
+
+# ─── SYSTEM INFO ───
+host="$(cat /etc/hostname 2>/dev/null)"
+os="Arch Linux"
+kernel="$(uname -sr)"
+uptime="$(uptime -p | sed 's/up //')"
+packages="$(pacman -Q 2>/dev/null | wc -l)"
+shell="$(basename "${SHELL}")"
+term="$(basename "${TERMINAL}" 2>/dev/null || echo "foot")"
+time="$(date +"%I:%M %p")"
+cpu_model="$(lscpu | grep "Model name" | head -1 | cut -d: -f2 | xargs | sed 's/Intel(R) Core(TM) //' | sed 's/ CPU @.*//')"
+gpu="$(lspci | grep -E "VGA|3D|Display" | head -1 | cut -d: -f3- | xargs | sed 's/ Corporation//')"
+cpu_temp="$(sensors 2>/dev/null | grep -E "Package id 0|Core 0" | head -1 | awk '{print $4}' | tr -d '+°C' || echo "N/A")"
+battery="$(cat /sys/class/power_supply/BAT0/capacity 2>/dev/null || echo "N/A")"
+battery_status="$(cat /sys/class/power_supply/BAT0/status 2>/dev/null || echo "N/A")"
+memory="$(free -h | awk '/^Mem:/ {print $3 " / " $2}')"
+disk="$(df -h / | awk 'NR==2 {print $3 " / " $2}')"
+network="$(ip route | grep default | awk '{print $5}' | head -1 || echo "N/A")"
+ip="$(ip -4 addr show | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | grep -v 127.0.0.1 | head -1 || echo "N/A")"
+
+# ─── LOGO (Pywal colors) ───
+logo=(
+"${C1}                 _     "
+"${C2}   __ _ _ __ ___| |__  "
+"${C3}  / _\` | '__/ __| '_ \\ "
+"${C4} | (_| | | | (__| | | |"
+"${C5}  \\__,_|_|  \\___|_| |_|"
+"${C6}  _ _                  "
+"${C7} | (_)_ __  _   ___  __"
+"${C8} | | | '_ \\| | | \\ \\/ /"
+"${C1} | | | | | | |_| |>  < "
+"${C2} |_|_|_| |_|\\__,_/_/\\_\\"
+)
+
+# ─── INFO LINES ───
+info=(
+"${WHITE}  USER${RESET}     ${GREEN}$USER@${host}${RESET}"
+"${WHITE}󱑢  UPTIME${RESET}   ${GREEN}${uptime}${RESET}"
+"${WHITE}󰥔  TIME${RESET}     ${GREEN}${time}${RESET}"
+"${WHITE}  OS${RESET}       ${GREEN}${os}${RESET}"
+"${WHITE}  KERNEL${RESET}   ${GREEN}${kernel}${RESET}"
+"${WHITE}󰮯  PACKAGES${RESET} ${GREEN}${packages}${RESET}"
+"${WHITE}  TERMINAL${RESET} ${GREEN}${term}${RESET}"
+"${WHITE}  SHELL${RESET}    ${GREEN}${shell}${RESET}"
+#"${WHITE}  CPU${RESET}      ${GREEN}${cpu_model}${RESET}"
+#"${WHITE}󱤓  GPU${RESET}      ${GREEN}${gpu}${RESET}"
+#"${WHITE}󱃂  CPU TEMP${RESET} ${GREEN}${cpu_temp}°C${RESET}"
+#"${WHITE}󰁹  BATTERY${RESET}  ${GREEN}${battery}% (${battery_status})${RESET}"
+"${WHITE}󰍛  MEMORY${RESET}   ${GREEN}${memory}${RESET}"
+"${WHITE}  DISK${RESET}     ${GREEN}${disk}${RESET}"
+#"${WHITE}󰩟  NETWORK${RESET}  ${GREEN}${network}${RESET}"
+#"${WHITE}󰩟  IP${RESET}       ${GREEN}${ip}${RESET}"
+)
+
+# ─── PRINT SIDE BY SIDE ───
+logo_lines=${#logo[@]}
+info_lines=${#info[@]}
+max_lines=$(( logo_lines > info_lines ? logo_lines : info_lines ))
+
+for ((i=0; i<max_lines; i++)); do
+    logo_line=""
+    info_line=""
+
+    if [ $i -lt $logo_lines ]; then
+        logo_line="${logo[$i]}"
+    else
+        logo_line="                     "
+    fi
+
+    if [ $i -lt $info_lines ]; then
+        info_line="${info[$i]}"
+    else
+        info_line=""
+    fi
+
+    printf "%-42s" "$logo_line"
+    echo -e "$info_line"
+done
+
+# ─── FOOTER ───
+echo ""
+printf "${GREEN}  ═══════════════════════════════════════════${RESET}\n"
+printf "${MAGENTA}  ░▒▓█ ${WHITE}archlinux${MAGENTA} █▓▒░${RESET}\n"
