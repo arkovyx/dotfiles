@@ -72,3 +72,6 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Load pywal colors
 # (cat ~/.cache/wal/sequences &)
+
+alias tm="tmux"
+alias ff="fastfetch"
