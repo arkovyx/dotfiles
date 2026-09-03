@@ -111,7 +111,7 @@ map <c-l> unselect
 # movement
 map gw cd ~/data/Wallpapers
 map gd cd ~/dox
-map gD cd ~/dl
+map gD cd ~/.dotfiles
 map gp cd ~/pix
 map gc cd ~/.config
 map gC cd ~/.cache
