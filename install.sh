@@ -42,13 +42,13 @@ cat << "EOF"
 EOF
 echo -e "${RESET}"
 echo -e "${GREEN}═══════════════════════════════════════════════════════════════════════════════${RESET}"
-echo -e "${CYAN}  🚀 Arch Linux Dotfiles Installer  |  ${START_DATE}${RESET}"
+echo -e "${CYAN}   > Arch Linux Dotfiles Installer  |  ${START_DATE}${RESET}"
 echo -e "${GREEN}═══════════════════════════════════════════════════════════════════════════════${RESET}"
 echo ""
 
 if [[ $DRY_RUN -eq 1 ]]; then
     echo -e "${YELLOW}╔══════════════════════════════════════════════════════════════════╗${RESET}"
-    echo -e "${YELLOW}║  🔍 DRY RUN MODE — This is a simulation. No changes will be made. ║${RESET}"
+    echo -e "${YELLOW}║  > DRY RUN MODE — This is a simulation. No changes will be made. ║${RESET}"
     echo -e "${YELLOW}╚══════════════════════════════════════════════════════════════════╝${RESET}"
     echo ""
 fi
@@ -212,7 +212,7 @@ SECONDS=$((ELAPSED % 60))
 
 echo ""
 echo -e "${GREEN}═══════════════════════════════════════════════════════════════════${RESET}"
-echo -e "${BRIGHT_GREEN}  ✅ COMPLETED IN: ${HOURS}h ${MINUTES}m ${SECONDS}s${RESET}"
+echo -e "${BRIGHT_GREEN}  • COMPLETED IN: ${HOURS}h ${MINUTES}m ${SECONDS}s${RESET}"
 echo -e "${GREEN}═══════════════════════════════════════════════════════════════════${RESET}"
 echo ""
 
@@ -236,7 +236,7 @@ Some steps were skipped."
         ;;
     failed)
         gum style --border rounded --border-foreground 196 --padding "1 2" --bold \
-        "❌ Installation Failed
+        " Installation Failed
 Check the logs above."
         ;;
     *)
