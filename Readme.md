@@ -1,6 +1,10 @@
 # Dotfiles
 
-<img src = "assets/fullscreen.png" width ="400"/> <img src = "assets/fullscreen2.png" width ="400"/>
+![Fullscreen1](assets/blur.png)
+
+<img src = "assets/fullscreen2.png" width ="400"/> <img src = "assets/2.png" width = "400"/>
+<img src = "assets/fullscreen.png" width ="600"/>
+<img src = "assets/shelbymustangGT500.png" width = "400"/> <img src = "assets/shelbymustangGT500(2).png" width = "400"/>
 
 ## Usage
 ```bash
