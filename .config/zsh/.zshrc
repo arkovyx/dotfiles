@@ -76,3 +76,4 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 alias tm="tmux"
 alias ff="fastfetch"
 alias af="arkfetch"
+alias lg="lazygit"
