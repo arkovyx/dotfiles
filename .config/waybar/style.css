@@ -1,242 +1,208 @@
-/*
- * Ignore GTK theme
- * https://github.com/Alexays/Waybar/issues/1351
- */
+@import url('../../.cache/wal/colors-waybar.css');
+
 * { all: initial; }
 
-@import "themes/catppuccin-mocha.css";
-
 * {
-	font-family: "GoogleSansCode Nerd Font";
-	font-size: 13px;
-	font-weight: 500;
-	color: @fg;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 13px;
+    font-weight: 600;
+    color: @foreground;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
 }
 
-#waybar {
-	background-color: @shadow;
-}
-#waybar > box {
-	margin: 3px;
-	background-color: @bg-0;
+/* Floating bar */
+window#waybar {
+    background: transparent;
+    transition: background-color 0.5s ease;
 }
 
-.module {
-	/* Vertically align modules */
-	margin-bottom: -1px;
+window#waybar > box {
+    margin: 6px 10px;
+    background: alpha(@background, 0.85);
+    border-radius: 14px;
+    padding: 0 10px;
 }
 
-button {
-	border-radius: 16px;
-	padding: 0 10px;
-	min-width: 16px;
-}
-button:hover {
-	background-color: @hover-bg;
-	color: @hover-fg;
-}
+window#waybar.hidden { opacity: 0.2; }
 
-tooltip {
-	border: 2px solid @br;
-	background-color: @bg-0;
-}
-tooltip > box {
-	padding: 0 6px;
-}
-tooltip label {
-	font-weight: 400;
-}
-
-/* Left modules */
-
-#custom-user {
-	padding: 0 16px;
-}
+/**************/
+/* Workspaces
+ * empty       → ghost, no circle
+ * has window  → @color14 ring, 1px, neutral text
+ * active      → @color4 ring, 2px, bold text
+ * visible     → @color13 ring, dim
+ * urgent      → @color1 ring
+ */
 
 #workspaces {
-	padding: 0 1px;
-	background-color: @bg-1;
-}
-#workspaces button.active label,
-#workspaces button.focused label {
-	font-size: 18.75px;
-	color: @accent;
+    background: transparent;
+    padding: 0 4px;
+    margin: 0;
 }
 
-/*
- * Prevent large Unicode characters from increasing the bar height
- * https://github.com/Alexays/Waybar/issues/2026
+#workspaces button {
+    background: transparent;
+    color: alpha(@foreground, 0.30);
+    min-width: 22px;
+    min-height: 22px;
+    padding: 0;
+    margin: 0 4px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    font-weight: 500;
+    transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+/* Empty persistent workspaces — ghost, no circle */
+#workspaces button.empty {
+    color: alpha(@foreground, 0.10);
+    border-color: transparent;
+}
+
+/* Has a window, not active — @color14 ring, thin */
+#workspaces button:not(.empty):not(.active):not(.visible) {
+    color: alpha(@foreground, 0.85);
+    font-weight: 600;
+    border: 1px solid @color14;
+}
+
+/* Hover — brightens to the active accent */
+#workspaces button:hover {
+    background: transparent;
+    color: @color4;
+    border-color: @color4;
+}
+
+/* ACTIVE — @color4 ring, thick, bold text */
+#workspaces button.active {
+    background: transparent;
+    color: @color4;
+    font-weight: 700;
+    border: 2px solid @color4;
+}
+
+/* Visible on another monitor — dim @color13 ring */
+#workspaces button.visible {
+    background: transparent;
+    color: alpha(@foreground, 0.55);
+    font-weight: 600;
+    border: 1px solid alpha(@color13, 0.6);
+}
+
+/* Urgent — @color1 ring */
+#workspaces button.urgent {
+    background: transparent;
+    color: @color1;
+    font-weight: 700;
+    border: 2px solid @color1;
+}
+
+/**************/
+/* Window title
  */
-#window { margin: -1px 0; }
 
-#window label {
-	font-weight: 400;
-	padding-left: 12px;
-}
-
-/* Center modules */
-
-#custom-space {
-	padding: 0 3px;
+#window {
+    background: transparent;
+    color: alpha(@foreground, 0.45);
+    font-weight: 400;
+    font-style: italic;
+    padding: 0 16px;
 }
 
-#temperature {
-	background-color: @bg-1;
-}
-#temperature.critical {
-	color: @critical;
+/**************/
+/* Right-side modules — uniform, transparent, no pills
+ */
+
+#clock,
+#custom-date,
+#custom-gpumode,
+#battery,
+#backlight,
+#cpu,
+#memory,
+#pulseaudio {
+    background: transparent;
+    color: alpha(@foreground, 0.72);
+    padding: 0 12px;
+    margin: 0;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    transition: color 0.25s ease;
 }
 
-#memory {
-	background-color: @bg-2;
-}
-#memory.warning {
-	color: @warning;
-}
-#memory.critical {
-	color: @critical;
-}
-
-#cpu {
-	background-color: @bg-3;
-}
-#cpu.warning {
-	color: @warning;
-}
-#cpu.critical {
-	color: @critical;
+#clock:hover,
+#custom-date:hover,
+#custom-gpumode:hover,
+#battery:hover,
+#backlight:hover,
+#cpu:hover,
+#memory:hover,
+#pulseaudio:hover {
+    background: transparent;
+    color: @color14;
 }
 
-#custom-distro {
-	font-size: 18.75px;
-	padding: 0 10px 0 5px;
-	background-color: @accent;
-	color: @bg-0;
+/**************/
+/* Dropdown — accent text only
+ */
+
+#custom-dropdown {
+    background: transparent;
+    color: @color14;
+    padding: 0 12px;
+    margin: 0;
+    border-radius: 0;
+    font-size: 15px;
+    font-weight: 700;
+    transition: color 0.25s ease;
 }
 
-#idle_inhibitor {
-	background-color: @bg-3;
-}
-#idle_inhibitor:hover,
-#idle_inhibitor.deactivated {
-	color: @hover-fg;
-}
-#clock.time {
-	padding-right: 6px;
-	background-color: @bg-3;
+#custom-dropdown:hover {
+    background: transparent;
+    color: @foreground;
 }
 
-#clock.date {
-	padding-left: 6px;
-	background-color: @bg-2;
-}
-#clock.date:hover {
-	color: @hover-fg;
+/**************/
+/* Tray
+ */
+
+#tray {
+    background: transparent;
+    padding: 0 8px;
+    margin: 0;
 }
 
-#network {
-	padding: 0 6px 0 4px;
-	background-color: @bg-1;
-}
-#network:hover {
-	color: @hover-fg;
-}
-#bluetooth {
-	padding: 0 4px;
-	background-color: @bg-1;
-}
-#bluetooth:hover {
-	color: @hover-fg;
-}
-#custom-update {
-	padding: 0 6px 0 1px;
-	background-color: @bg-1;
-}
-#custom-update:hover {
-	color: @hover-fg;
+#tray > .passive { -gtk-icon-effect: dim; }
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    color: @color14;
 }
 
-/* Right modules */
+/**************/
+/* State colors
+ */
 
-#mpris {
-	font-weight: 400;
-	padding: 0 12px;
-}
-#mpris:hover,
-#mpris.paused {
-	color: @hover-fg;
-}
+#battery.warning  { color: @color3; }
+#battery.critical { color: @color1; }
+#battery.charging { color: @color2; }
+#pulseaudio.muted { color: @color1; }
 
-#pulseaudio,
-#wireplumber {
-	background-color: @bg-1;
-}
-#pulseaudio:hover,
-#pulseaudio.output.muted,
-#pulseaudio.input.source-muted,
-#wireplumber:hover,
-#wireplumber.muted {
-	color: @hover-fg;
+/**************/
+/* Tooltip
+ */
+
+tooltip {
+    background: alpha(@background, 0.96);
+    border: none;
+    border-radius: 8px;
 }
 
-#backlight {
-	background-color: @bg-2;
-}
-
-#battery {
-	background-color: @bg-3;
-}
-#battery.warning {
-	color: @warning;
-}
-#battery.critical {
-	color: @critical;
-}
-#battery.charging {
-	color: @charging;
-}
-
-#custom-power {
-	font-size: 16px;
-	border-radius: 16px;
-	padding: 0 19px 0 16px;
-	color: @accent;
-}
-#custom-power:hover {
-	background-color: @hover-bg;
-	color: @hover-fg;
-}
-
-/* Dividers */
-
-#custom-left,
-#custom-right {
-	font-size: 19.5px;
-}
-
-#custom-left.accent,
-#custom-right.accent {
-	color: @accent;
-}
-
-#custom-left.bg-1,
-#custom-right.bg-1 {
-	color: @bg-1;
-}
-
-#custom-left.bg-2,
-#custom-right.bg-2 {
-	background-color: @bg-1;
-	color: @bg-2;
-}
-
-#custom-left.bg-3,
-#custom-right.bg-3 {
-	background-color: @bg-2;
-	color: @bg-3;
-}
-
-#custom-left.inverse,
-#custom-right.inverse {
-	color: @bg-3;
+tooltip label {
+    color: @foreground;
+    font-weight: 400;
 }
