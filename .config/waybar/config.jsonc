@@ -27,7 +27,7 @@
         "format": "{icon}",
         "format-icons": {
         "1": "",  // Browser → research, online study
-        "2": "",  // Code → programming, assignments
+        "2": "",  // Code → programming, assignments
         "3": "",  // Book → textbooks, notes, reading
         "4": "",  // Cog → system/tools for productivity
         "5": "",  // Chatting
@@ -37,7 +37,7 @@
         "9": "",  // Flask (Science) → labs, simulations, experiments
         "10": "", // Media viewer (optional, for diagrams/images)
         "11": "",
-        "12": "",
+        "12": "",
         "13": "",
         "14": "",
         "15": "",
@@ -47,11 +47,10 @@
         "19": "",
         "20": "",
         "urgent": "",
-            // "active": "", // focused workspace on current monitor
-            // "visible": "", // focused workspace on other monitors
-            // "default": "",
-            // "default": "", // focused workspace on current monitor
-            // "empty": "" // persistent
+        "active": "", // focused workspace on current monitor
+        "visible": "", // focused workspace on other monitors
+        "default": "", // focused workspace on current monitor
+        "empty": "" // persistent
         },
         "on-scroll-up": "hyprctl dispatch workspace r-1",
         "on-scroll-down": "hyprctl dispatch workspace r+1",
