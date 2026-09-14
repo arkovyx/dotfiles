@@ -3,14 +3,12 @@
 * { all: initial; }
 
 * {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 13px;
-    font-weight: 600;
-    color: @foreground;
-    border: none;
-    border-radius: 0;
-    min-height: 0;
-    font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
+font-family: "Jetbrains Mono Nerd", "FontAwesome";
+font-weight: bold;
+min-height: 10px;
+font-size: 96%;
+font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
+/* padding: 0.03125rem; */
 }
 
 /* Floating bar */
@@ -29,75 +27,57 @@ window#waybar > box {
 window#waybar.hidden { opacity: 0.2; }
 
 /**************/
-/* Workspaces
- * empty       → ghost, no circle
- * has window  → @color14 ring, 1px, neutral text
- * active      → @color4 ring, 2px, bold text
- * visible     → @color13 ring, dim
- * urgent      → @color1 ring
- */
+/* Workspaces */
+/**************/
 
 #workspaces {
     background: transparent;
-    padding: 0 4px;
+    padding: 0 6px;
     margin: 0;
 }
 
 #workspaces button {
     background: transparent;
-    color: alpha(@foreground, 0.30);
-    min-width: 22px;
-    min-height: 22px;
-    padding: 0;
-    margin: 0 4px;
-    border: 1px solid transparent;
-    border-radius: 50%;
+    color: alpha(@foreground, 0.25);
+    padding: 0 6px;
+    margin: 0 2px;
+    border: none;
+    border-radius: 0;
     font-weight: 500;
-    transition: color 0.25s ease, border-color 0.25s ease;
+    transition: color 0.25s ease;
 }
 
-/* Empty persistent workspaces — ghost, no circle */
+/* Empty persistent workspaces — hollow circle, barely visible */
 #workspaces button.empty {
-    color: alpha(@foreground, 0.10);
-    border-color: transparent;
+    color: alpha(@foreground, 0.15);
 }
 
-/* Has a window, not active — @color14 ring, thin */
+/* Has a window, not active — filled circle, readable */
 #workspaces button:not(.empty):not(.active):not(.visible) {
-    color: alpha(@foreground, 0.85);
-    font-weight: 600;
-    border: 1px solid @color14;
+    color: alpha(@foreground, 0.80);
 }
 
-/* Hover — brightens to the active accent */
-#workspaces button:hover {
-    background: transparent;
-    color: @color4;
-    border-color: @color4;
-}
-
-/* ACTIVE — @color4 ring, thick, bold text */
+/* ACTIVE — the accent, brightest thing in the block */
 #workspaces button.active {
-    background: transparent;
-    color: @color4;
+    color: @color14;
     font-weight: 700;
-    border: 2px solid @color4;
 }
 
-/* Visible on another monitor — dim @color13 ring */
+/* Visible on another monitor — dimmer accent */
 #workspaces button.visible {
-    background: transparent;
-    color: alpha(@foreground, 0.55);
-    font-weight: 600;
-    border: 1px solid alpha(@color13, 0.6);
+    color: alpha(@color14, 0.55);
 }
 
-/* Urgent — @color1 ring */
+/* Urgent — Pywal red */
 #workspaces button.urgent {
-    background: transparent;
     color: @color1;
     font-weight: 700;
-    border: 2px solid @color1;
+}
+
+/* Hover — brightens toward accent */
+#workspaces button:hover {
+    background: transparent;
+    color: @color14;
 }
 
 /**************/
@@ -118,7 +98,6 @@ window#waybar.hidden { opacity: 0.2; }
 
 #clock,
 #custom-date,
-#custom-gpumode,
 #battery,
 #backlight,
 #cpu,
@@ -136,7 +115,6 @@ window#waybar.hidden { opacity: 0.2; }
 
 #clock:hover,
 #custom-date:hover,
-#custom-gpumode:hover,
 #battery:hover,
 #backlight:hover,
 #cpu:hover,
