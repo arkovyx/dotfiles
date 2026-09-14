@@ -57,7 +57,7 @@
         "all-outputs": false,
         "show-special": false
     },
-            "hyprland/window": {
+    "hyprland/window": {
         "format": "󰣇 {}",
         "max-length": 50
     },
@@ -116,7 +116,7 @@
         "format-alt": "{icon} ",
         "format-good": "{icon} {capacity:3}%",
         "format-full": "{icon} {capacity:3}%",
-       "tooltip-format": "{timeTo}\nHealth: {health}%\nPower Draw: {power:.2f} W\nCycles: {cycles}\n\nLMB: Toggle Format\nRMB: Timeout Settings",
+        "tooltip-format": "{timeTo}\nHealth: {health}%\nPower Draw: {power:.2f} W\nCycles: {cycles}\n\nLMB: Toggle Format\nRMB: Timeout Settings",
         "format-icons": [
             "",
             "",
@@ -138,19 +138,19 @@
         "scroll-step": 1, // %, can be a float
         "format": "{volume:2}% {icon} {format_source}",
         "format-muted": "{volume:2}% 󰝟 {format_source}",
-        "format-bluetooth": "{volume:2}% {icon}  {format_source}",
+        "format-bluetooth": "{volume:2}% {icon} 󰂯 {format_source}",
         "format-source": "",
         "format-source-muted": "",
         "format-icons": {
-            "analog": "",
+            "analog": "",
             "hdmi": "󰓃",
-            "headphone": "",
+            "headphone": "",
             "headset": "󰋎",
             "default": [
                 "", // 0  - 25
                 "", // 25 - 50
                 "", // 50 - 75
-                "" // 75 - 100
+                ""  // 75 - 100
             ]
         },
         "on-click": "pavucontrol",
