@@ -143,3 +143,6 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true 
 
 hl.bind(mainMod .. " + SHIFT + H", hl.dsp.exec_cmd("toggle_idle.sh"))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("setwall"))
+
+-- ARK-II
+hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("~/dev/ark-ii/scripts/voice-bar.sh"))
