@@ -68,7 +68,7 @@
     "clock": {
         "timezone": "Asia/Kolkata",
         "tooltip-format": "<tt><big>{calendar}</big></tt>",
-        "format": "󰥔 {:%H:%M}",
+        "format": "󰥔 {:%I:%M}",
         "interval": 5
     },
     "custom/date": {
