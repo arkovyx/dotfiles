@@ -41,7 +41,7 @@ hl.bind("PRINT", hl.dsp.exec_cmd("hypr_screenshot.sh"))
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("hypr_screenshot.sh"))
 
 -- Music Controls
-hl.bind(mainMod .. " + m", hl.dsp.exec_cmd(terminal .. " -e zsh -i -c \"ncmpcpp\""))
+hl.bind(mainMod .. " + m", hl.dsp.exec_cmd(terminal .. " -e zsh -i -c \"rmptui\""))
 hl.bind(mainMod .. " + p", hl.dsp.exec_cmd("mpc toggle"))
 hl.bind(mainMod .. " + period", hl.dsp.exec_cmd("mpc seek +10"), { repeating = true })
 hl.bind(mainMod .. " + comma", hl.dsp.exec_cmd("mpc seek -10"), { repeating = true })
@@ -145,4 +145,4 @@ hl.bind(mainMod .. " + SHIFT + H", hl.dsp.exec_cmd("toggle_idle.sh"))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("setwall"))
 
 -- ARK-II
-hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("~/dev/ark-ii/scripts/voice-bar.sh"))
+-- hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("~/dev/ark-ii/scripts/voice-bar.sh"))
