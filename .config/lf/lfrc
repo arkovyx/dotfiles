@@ -117,6 +117,7 @@ map gc cd ~/.config
 map gC cd ~/.cache
 map gr cd ~/dev/repo
 map gm cd ~/data/media
+map gM cd ~/music
 map gb cd ~/.local/bin
 map gt cd ~/temp
 map gs cd ~/.local/share
