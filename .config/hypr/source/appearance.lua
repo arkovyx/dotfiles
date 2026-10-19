@@ -48,7 +48,7 @@ hl.config({
         bezier = {
             {
                 name = "myBezier",
-                points = { 0.05, 0.9, 0.1, 1.05 },
+                points = { 1.05, 2.3, 1.5, 2.05 },
             },
         },
 
