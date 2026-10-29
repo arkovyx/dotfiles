@@ -5,7 +5,6 @@
 local hs = require("hyprsplit")
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + SHIFT + X", hl.dsp.window.close())
-hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exit())
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
 
@@ -31,7 +30,7 @@ hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 -- bind = $mainMod SHIFT, P, pseudo, # dwindle
 -- (left commented out to mirror the original file)
 hl.bind(mainMod .. " + Tab", hl.dsp.window.cycle_next({ next = false }), { repeating = true })
-hl.bind(mainMod .. " + b", hl.dsp.exec_cmd("killall waybar || waybar"))
+-- hl.bind(mainMod .. " + b", hl.dsp.exec_cmd("killall waybar || waybar"))
 hl.bind(mainMod .. " + grave", hl.dsp.exec_cmd("fuzzelunicode"))
 hl.bind(mainMod .. " + escape", hl.dsp.exec_cmd("sysact"))
 
@@ -41,8 +40,7 @@ hl.bind("PRINT", hl.dsp.exec_cmd("hypr_screenshot.sh"))
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("hypr_screenshot.sh"))
 
 -- Music Controls
-hl.bind(mainMod .. " + m", hl.dsp.exec_cmd(terminal .. " -e zsh -i -c \"ncmpcpp\""))
-hl.bind(mainMod .. " + SHIFT + m", hl.dsp.exec_cmd(terminal .. " -e zsh -i -c \"rmptui\""))
+hl.bind(mainMod .. " + m", hl.dsp.exec_cmd(terminal .. " -e zsh -i -c \"rmptui\""))
 hl.bind(mainMod .. " + p", hl.dsp.exec_cmd("mpc toggle"))
 hl.bind(mainMod .. " + period", hl.dsp.exec_cmd("mpc seek +10"), { repeating = true })
 hl.bind(mainMod .. " + comma", hl.dsp.exec_cmd("mpc seek -10"), { repeating = true })
