@@ -60,3 +60,4 @@ colors() {
 #     filepath="$(find ~/movies/ -type f -regex ".*\.\(mkv\|mp4\|mpeg\|avi\|mov\|webm\)")"
 #     mpv "$(grep "$filename" <<< "$filepath")"
 # }
+

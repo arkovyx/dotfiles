@@ -9,3 +9,5 @@ do
   "c") cat "$file" | xclip -sel c -t image/png && notify-send "$file Copied ";;
   esac
 done
+
+
