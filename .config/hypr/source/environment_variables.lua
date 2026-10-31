@@ -4,7 +4,7 @@
 -- Environment Variables
 --------------------------------------------------
 local envs = {
-    HYPRSHOT_DIR = "/home/krolyxon/pix/ss/",
+    HYPRSHOT_DIR = "/home/me/pix/ss/",
     XCURSOR_SIZE = "24",
     HYPRCURSOR_SIZE = "24",
 
