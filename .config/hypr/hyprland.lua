@@ -26,7 +26,6 @@ hl.on("hyprland.start", function()
     -- hl.exec_cmd("swaync")
     -- TZEUK: Custom Quickshell shell
     hl.exec_cmd("qs -c ~/.config/quickshell/tzeuk")
-    hl.exec_cmd("gammastep")
     hl.exec_cmd("hypridle")
     hl.exec_cmd(os.getenv("HOME") .. "/.local/bin/setwall -n")
     hl.exec_cmd("systemctl --user start hyprpolkitagent")
