@@ -26,7 +26,7 @@ hl.bind(
 )
 
 
-hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
+hl.bind("SUPER + R", hl.dsp.exec_cmd("qs -c tzeuk ipc call launcher toggle"))
 -- bind = $mainMod SHIFT, P, pseudo, # dwindle
 -- (left commented out to mirror the original file)
 hl.bind(mainMod .. " + Tab", hl.dsp.window.cycle_next({ next = false }), { repeating = true })
