@@ -116,7 +116,6 @@ hl.bind(mainMod .. " + CTRL + period", hl.dsp.exec_cmd("hypr_screen_rotate.py -9
 -- --- Hyprshade (Visual Filters) ---
 hl.bind(mainMod .. " + CTRL + S", hl.dsp.exec_cmd("hypr_shader_menu.sh"), { desc = "Shader Menu" })
 hl.bind(mainMod .. " + CTRL + X", hl.dsp.exec_cmd("hyprshade off"), { locked = true, desc = "Disable Shader" })
-hl.bind(mainMod .. " + CTRL + V", hl.dsp.exec_cmd("hyprshade on vibrance"), { locked = true, desc = "Vibrant Shader" })
 
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
@@ -140,7 +139,7 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tr
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 
-hl.bind(mainMod .. " + SHIFT + H", hl.dsp.exec_cmd("toggle_idle.sh"))
+hl.bind(mainMod .. " + SHIFT + H", hl.dsp.exec_cmd("toggle_idle"))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("setwall"))
 
 -- ARK-II
