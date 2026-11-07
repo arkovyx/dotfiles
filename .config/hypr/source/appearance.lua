@@ -10,7 +10,7 @@ hl.config({
         resize_on_border = false,
         allow_tearing = false,
 
-        layout = "master",
+        layout = "dwindle",
 
         ["col.active_border"] = {
             colors = { wal.colors.color14, wal.colors.color12 },
