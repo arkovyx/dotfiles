@@ -31,7 +31,7 @@ hl.bind("SUPER + R", hl.dsp.exec_cmd("qs -c tzeuk ipc call launcher toggle"))
 -- (left commented out to mirror the original file)
 hl.bind(mainMod .. " + Tab", hl.dsp.window.cycle_next({ next = false }), { repeating = true })
 -- hl.bind(mainMod .. " + b", hl.dsp.exec_cmd("killall waybar || waybar"))
-hl.bind(mainMod .. " + grave", hl.dsp.exec_cmd("fuzzelunicode"))
+hl.bind(mainMod .. " + grave", hl.dsp.exec_cmd("qs -c tzeuk ipc call glyphs toggle"))
 hl.bind(mainMod .. " + escape", hl.dsp.exec_cmd("sysact"))
 
 -- Applications
