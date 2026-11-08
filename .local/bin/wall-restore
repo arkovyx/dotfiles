@@ -1,0 +1,44 @@
+#!/bin/bash
+# Restore last wallpaper applied via the tzeuk wallpicker.
+# Safe to run at boot: no-ops if no wallpaper has ever been applied.
+
+CACHE="$HOME/.cache/tzeuk-wallpicker"
+CONFIG="$HOME/.config/hypr/hyprpaper.conf"
+STATE_FILE="$CACHE/last_wallpaper"
+
+# 1. Ensure hyprpaper is running. It will pick up whatever config
+#    is already on disk (so boot restores instantly even before step 3).
+if ! pgrep -x hyprpaper >/dev/null 2>&1; then
+    hyprpaper >/dev/null 2>&1 &
+    sleep 0.5
+fi
+
+# 2. If picker has never run, we're done.
+[ -f "$STATE_FILE" ] || exit 0
+
+WALL="$(cat "$STATE_FILE" 2>/dev/null)"
+[ -n "$WALL" ] || exit 0
+
+# 3. If the wallpaper file still exists, rewrite config + re-apply.
+if [ -f "$WALL" ]; then
+    mkdir -p "$(dirname "$CONFIG")"
+    cat > "$CONFIG" <<EOC
+splash = false
+wallpaper {
+    monitor =
+    path = $WALL
+}
+EOC
+
+    hyprctl hyprpaper preload "$WALL" >/dev/null 2>&1 || true
+    if ! hyprctl hyprpaper wallpaper ",$WALL" >/dev/null 2>&1; then
+        for mon in $(hyprctl monitors 2>/dev/null | awk '/^Monitor /{print $2}'); do
+            hyprctl hyprpaper wallpaper "$mon,$WALL" >/dev/null 2>&1 || true
+        done
+    fi
+
+    # 4. Restore pywal colors from the same wallpaper.
+    if command -v wal >/dev/null 2>&1; then
+        wal -i "$WALL" -n -q >/dev/null 2>&1 || true
+    fi
+fi
