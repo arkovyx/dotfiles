@@ -24,7 +24,7 @@ hl.on("hyprland.start", function()
     -- TZEUK: Custom Quickshell shell
     hl.exec_cmd("qs -c ~/.config/quickshell/tzeuk")
     hl.exec_cmd("hypridle")
-    hl.exec_cmd(os.getenv("HOME") .. "/.local/bin/setwall -n")
+    hl.exec_cmd(os.getenv("HOME") .. "/.local/bin/wall-restore &")
     hl.exec_cmd("systemctl --user start hyprpolkitagent")
 end)
 
