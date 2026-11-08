@@ -27,10 +27,8 @@ hl.bind(
 
 
 hl.bind("SUPER + R", hl.dsp.exec_cmd("qs -c tzeuk ipc call launcher toggle"))
--- bind = $mainMod SHIFT, P, pseudo, # dwindle
--- (left commented out to mirror the original file)
+hl.bind(mainMod .. " + CTRL + W", hl.dsp.exec_cmd("qs -c tzeuk ipc call wallpaper toggle"))
 hl.bind(mainMod .. " + Tab", hl.dsp.window.cycle_next({ next = false }), { repeating = true })
--- hl.bind(mainMod .. " + b", hl.dsp.exec_cmd("killall waybar || waybar"))
 hl.bind(mainMod .. " + grave", hl.dsp.exec_cmd("qs -c tzeuk ipc call glyphs toggle"))
 hl.bind(mainMod .. " + escape", hl.dsp.exec_cmd("sysact"))
 
@@ -140,7 +138,6 @@ hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tru
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 
 hl.bind(mainMod .. " + SHIFT + H", hl.dsp.exec_cmd("toggle_idle"))
-hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("setwall"))
 
 -- ARK-II
 -- hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("~/dev/ark-ii/scripts/voice-bar.sh"))
