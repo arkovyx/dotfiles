@@ -28,6 +28,7 @@ hl.bind(
 
 hl.bind("SUPER + R", hl.dsp.exec_cmd("qs -c tzeuk ipc call launcher toggle"))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("qs -c tzeuk ipc call wallpaper toggle"))
+hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("qs -c tzeuk ipc call media toggle"))
 hl.bind(mainMod .. " + Tab", hl.dsp.window.cycle_next({ next = false }), { repeating = true })
 hl.bind(mainMod .. " + grave", hl.dsp.exec_cmd("qs -c tzeuk ipc call glyphs toggle"))
 hl.bind(mainMod .. " + escape", hl.dsp.exec_cmd("qs -c tzeuk ipc call power toggle"))
@@ -106,14 +107,14 @@ hl.bind(
 )
 
 -- Screen Rotate
-hl.bind(mainMod .. " + CTRL + comma", hl.dsp.exec_cmd("hypr_screen_rotate.py +90"),
+hl.bind(mainMod .. " + CTRL + comma", hl.dsp.exec_cmd("hypr_screen_rotate.sh +90"),
     { locked = true, desc = "Rotate Screen Anti-Clockwise" })
-hl.bind(mainMod .. " + CTRL + period", hl.dsp.exec_cmd("hypr_screen_rotate.py -90"),
+hl.bind(mainMod .. " + CTRL + period", hl.dsp.exec_cmd("hypr_screen_rotate.sh -90"),
     { locked = true, desc = "Rotate Screen Clockwise" })
 
 -- --- Hyprshade (Visual Filters) ---
-hl.bind(mainMod .. " + CTRL + S", hl.dsp.exec_cmd("hypr_shader_menu.sh"), { desc = "Shader Menu" })
-hl.bind(mainMod .. " + CTRL + X", hl.dsp.exec_cmd("hyprshade off"), { locked = true, desc = "Disable Shader" })
+-- hl.bind(mainMod .. " + CTRL + S", hl.dsp.exec_cmd("hypr_shader_menu.sh"), { desc = "Shader Menu" })
+-- hl.bind(mainMod .. " + CTRL + X", hl.dsp.exec_cmd("hyprshade off"), { locked = true, desc = "Disable Shader" })
 
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
