@@ -52,32 +52,6 @@ song_columns = [
     { field = "duration", width = 5 },
 ]
 
-[theme]
-# Colors are names (black, red, green, yellow, blue, magenta, cyan, gray,
-# darkgray, lightred, …, white, reset), 256-color indices ("208") or hex
-# values ("#c694ff"). "reset" is your terminal's default color.
-text = "reset"
-dim = "darkgray"
-# Horizontal and vertical separator lines.
-border = "gray"
-# The selected row. With both set to "reset", the row is shown in reverse
-# video like ncmpcpp.
-selection_fg = "reset"
-selection_bg = "reset"
-playing = "reset"
-marked = "yellow"
-directory = "reset"
-error = "red"
-# Song table columns.
-artist = "reset"
-track = "darkgray"
-album = "reset"
-duration = "reset"
-# The filled part of the progress bar.
-progress = "gray"
-# Visualizer bar gradient, from the bottom of the screen to the top.
-visualizer = ["blue", "cyan", "green", "yellow", "red"]
-
 [lyrics]
 # Look up lyrics on https://lrclib.net when no local `.lrc` file exists.
 online = true
