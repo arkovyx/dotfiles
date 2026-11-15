@@ -5,3 +5,4 @@ export pkg_optional=(
     "syncthing"
     "libreoffice-fresh"
 )
+
