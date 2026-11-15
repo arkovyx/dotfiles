@@ -10,3 +10,4 @@ export pkg_dev_tools=(
     "lazygit"
     "uv"
 )
+
