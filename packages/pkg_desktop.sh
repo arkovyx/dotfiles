@@ -11,3 +11,4 @@ export pkg_desktop=(
     "xdg-desktop-portal-hyprland"
     "quickshell"
 )
+
