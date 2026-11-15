@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1;
 else
-    selected=$(find ~/code/dev ~/code/repos ~/code/rust -mindepth 1 -maxdepth 1 -type d | fzf);
+    selected=$(find ~/dev ~/dev/repo ~/dev/learning/ -mindepth 1 -maxdepth 1 -type d | fzf);
 fi
 
 if [[ -z $selected ]]; then
