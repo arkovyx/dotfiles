@@ -1,0 +1,40 @@
+#!/bin/bash
+set -e
+WAL_CACHE="$HOME/.cache/wal"
+[ -f "$WAL_CACHE/colors.json" ] || exit 0
+CONFIG="$HOME/.config/rmptui/config.toml"
+[ -f "$CONFIG" ] || exit 0
+
+python3 - <<'PY'
+import json, os, re
+from pathlib import Path
+d = json.load(open(os.path.expanduser("~/.cache/wal/colors.json")))
+bg = d["special"]["background"]
+fg = d["special"]["foreground"]
+c1 = d["colors"]["color1"]
+c3 = d["colors"]["color3"]
+c4 = d["colors"]["color4"]
+c8 = d["colors"]["color8"]
+theme = f"""
+[theme]
+text = "{fg}"
+dim = "{c8}"
+border = "{c8}"
+selection_fg = "{bg}"
+selection_bg = "{c1}"
+playing = "{c1}"
+marked = "{c3}"
+directory = "{c4}"
+error = "{c1}"
+artist = "{fg}"
+track = "{c8}"
+album = "{c4}"
+duration = "{c8}"
+progress = "{c1}"
+visualizer = ["{c1}", "{c4}", "{c3}", "{fg}", "{c8}"]
+"""
+p = Path.home() / ".config" / "rmptui" / "config.toml"
+text = p.read_text()
+text = re.sub(r'\n\[theme\].*?(?=\n\[|\Z)', '', text, flags=re.DOTALL)
+p.write_text(text + theme)
+PY
