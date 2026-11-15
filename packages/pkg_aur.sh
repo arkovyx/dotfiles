@@ -12,3 +12,4 @@ export pkg_aur=(
     "yaru-icon-theme"
     "zsh-fast-syntax-highlighting-git"
 )
+
