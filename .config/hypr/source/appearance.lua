@@ -12,15 +12,15 @@ hl.config({
 
         layout = "dwindle",
 
-        -- ["col.active_border"] = {
-        --     colors = { m3.primary, m3.tertiary },
-        --     angle = 45,
-        -- },
+        ["col.active_border"] = {
+            colors = { m3.primary, m3.tertiary },
+            angle = 45,
+        },
 
-        -- ["col.inactive_border"] = {
-        --     colors = { m3.surface_lowest, m3.surface_lowest },
-        --     angle = 45,
-        -- },
+        ["col.inactive_border"] = {
+            colors = { m3.surface_lowest, m3.surface_lowest },
+            angle = 45,
+        },
     },
 
     --------------------------------------------------
