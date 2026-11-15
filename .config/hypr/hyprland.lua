@@ -10,7 +10,7 @@ local hs = require("hyprsplit")
 HOME = os.getenv("HOME")
 
 
--- Theme (iris)
+-- Theme (pywal)
 local _ok, _m3 = pcall(dofile, HOME .. "/.cache/wal/hyprland-colors.lua")
 if _ok then
     m3 = _m3
