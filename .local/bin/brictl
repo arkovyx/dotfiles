@@ -44,3 +44,4 @@ else
     focused_id=$(echo $monitor_data | jq -r '.[] | select(.focused == true) | .id')
     ddcutil  --enable-dynamic-sleep --display=$focused_id setvcp 10 $direction 15
 fi
+
