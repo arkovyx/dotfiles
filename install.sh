@@ -243,3 +243,4 @@ Check the logs above."
         gum style --bold "Finished."
         ;;
 esac
+
