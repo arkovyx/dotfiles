@@ -6,3 +6,4 @@ export pkg_gpu=(
     "nvidia-open"
     "nvidia-utils"
 )
+
