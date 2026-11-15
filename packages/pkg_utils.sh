@@ -79,4 +79,3 @@ export pkg_utils=(
     "zola"
     "zsh-autosuggestions"
 )
-
