@@ -35,3 +35,4 @@ notify-send -t 60000 "$word -" "$def"
 # normal=$(tput sgr0) # Reset text to normal
 # echo "${bold}Definition of $word"
 # echo "${normal}$def"
+
