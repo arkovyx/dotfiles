@@ -193,3 +193,20 @@ cursor_left = ["Left"]
 cursor_right = ["Right"]
 cursor_home = ["Home", "Ctrl+a"]
 cursor_end = ["End", "Ctrl+e"]
+
+[theme]
+text = "#c3c2c5"
+dim = "#615a6e"
+border = "#615a6e"
+selection_fg = "#100b19"
+selection_bg = "#9C161E"
+playing = "#9C161E"
+marked = "#248D76"
+directory = "#1D9F96"
+error = "#9C161E"
+artist = "#c3c2c5"
+track = "#615a6e"
+album = "#1D9F96"
+duration = "#615a6e"
+progress = "#9C161E"
+visualizer = ["#9C161E", "#1D9F96", "#248D76", "#c3c2c5", "#615a6e"]
