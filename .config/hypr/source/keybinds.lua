@@ -29,6 +29,7 @@ hl.bind(
 hl.bind("SUPER + R", hl.dsp.exec_cmd("qs -c tzeuk ipc call launcher toggle"))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("qs -c tzeuk ipc call wallpaper toggle"))
 hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("qs -c tzeuk ipc call media toggle"))
+hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("qs -c tzeuk ipc call clock toggle"))
 hl.bind(mainMod .. " + Tab", hl.dsp.window.cycle_next({ next = false }), { repeating = true })
 hl.bind(mainMod .. " + grave", hl.dsp.exec_cmd("qs -c tzeuk ipc call glyphs toggle"))
 hl.bind(mainMod .. " + escape", hl.dsp.exec_cmd("qs -c tzeuk ipc call power toggle"))
