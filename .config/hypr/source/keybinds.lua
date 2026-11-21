@@ -27,6 +27,7 @@ hl.bind(
 
 
 hl.bind("SUPER + R", hl.dsp.exec_cmd("qs -c tzeuk ipc call launcher toggle"))
+hl.bind("SUPER + S", hl.dsp.exec_cmd("qs -c tzeuk ipc call shader toggle"))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("qs -c tzeuk ipc call wallpaper toggle"))
 hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("qs -c tzeuk ipc call media toggle"))
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("qs -c tzeuk ipc call clock toggle"))
@@ -56,9 +57,6 @@ hl.bind(mainMod .. " + l", hl.dsp.window.resize({ x = 30, y = 0, relative = true
 hl.bind(mainMod .. " + k", hl.dsp.window.resize({ x = 0, y = -30, relative = true }), { repeating = true })
 hl.bind(mainMod .. " + j", hl.dsp.window.resize({ x = 0, y = 30, relative = true }), { repeating = true })
 
--- Clipboard menu (cliphist)
-hl.bind(mainMod .. " + v", hl.dsp.exec_cmd("sh -c \"cliphist list | fuzzel --dmenu --with-nth 2 | cliphist decode | wl-copy\""))
-
 -- ============================================================
 -- WORKSPACE SWITCHING (hyprsplit Lua)
 -- ============================================================
@@ -68,10 +66,6 @@ for i = 1, 10 do
     hl.bind(mainMod .. " + " .. key, hs.dsp.focus({ workspace = i }))
     hl.bind(mainMod .. " + SHIFT + " .. key, hs.dsp.window.move({ workspace = i, follow = false }))
 end
--- Example special workspace (scratchpad)
-hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
-
 -- Scratchpad like DWM
 hl.workspace_rule({ workspace = "special:h", on_created_empty = terminal })
 hl.bind(mainMod .. " + SHIFT + Return", hl.dsp.workspace.toggle_special("h"))
