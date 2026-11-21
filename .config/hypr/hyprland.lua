@@ -44,6 +44,26 @@ hs.config({
     persistent_workspaces = true,
 })
 
+-- ═══ Screen shader state (read from picker) ═══
+local function read_shader_path()
+    local home = os.getenv("HOME")
+    if not home then return "" end
+    local f = io.open(home .. "/.cache/tzeuk/shader", "r")
+    if not f then return "" end
+    local state = (f:read("*a") or ""):gsub("%s+", "")
+    f:close()
+    if state == "dots" then
+        return home .. "/.config/quickshell/tzeuk/shaders/hyprland/screen-dots.frag"
+    end
+    return ""
+end
+
+hl.config({
+    decoration = {
+        screen_shader = read_shader_path(),
+    },
+})
+
 -- -----------------------------------------------------
 -- SOURCE FILES
 -- -----------------------------------------------------
