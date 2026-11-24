@@ -67,7 +67,11 @@ for i = 1, 10 do
     hl.bind(mainMod .. " + SHIFT + " .. key, hs.dsp.window.move({ workspace = i, follow = false }))
 end
 -- Scratchpad like DWM
-hl.workspace_rule({ workspace = "special:h", on_created_empty = terminal })
+hl.on("workspace.created", function(ws)
+    if ws.name == "special:h" and ws.is_empty then
+        hl.exec_cmd(terminal)
+    end
+end)
 hl.bind(mainMod .. " + SHIFT + Return", hl.dsp.workspace.toggle_special("h"))
 
 -- --- Accessibility: Zoom ---
