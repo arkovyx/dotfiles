@@ -27,7 +27,7 @@ hl.bind(
 
 
 hl.bind("SUPER + R", hl.dsp.exec_cmd("qs -c tzeuk ipc call launcher toggle"))
-hl.bind("SUPER + S", hl.dsp.exec_cmd("qs -c tzeuk ipc call shader toggle"))
+hl.bind(mainMod .. " + CTRL + S", hl.dsp.exec_cmd("qs -c tzeuk ipc call shader toggle"))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("qs -c tzeuk ipc call wallpaper toggle"))
 hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("qs -c tzeuk ipc call media toggle"))
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("qs -c tzeuk ipc call clock toggle"))
